@@ -1,0 +1,2637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/fevicon.png">
+    <title>Greeshma | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --mint-green: #43A047;
+            --peach: #FB8C00;
+            --text-color: #424242;
+            --card-bg: #FFFFFF;
+            --nav-bg-light: rgba(232, 245, 233, 0.8);
+            --nav-bg-dark: rgba(17, 24, 39, 0.9);
+            --nav-hover: rgba(67, 160, 71, 0.2);
+            --pink: #FF69B4;
+            --gradient-1: linear-gradient(135deg, var(--pink) 0%, var(--mint-green) 50%, var(--peach) 100%);
+            --gradient-2: linear-gradient(135deg, var(--mint-green) 0%, var(--pink) 50%, var(--peach) 100%);
+            --deep-mint: #2E7D32;
+            --light-text: #f3f4f6;
+            --teal: #008080;
+            --darker-teal: #004c4c;
+        }
+
+        body {
+            background-image: url('images/bg-mp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: var(--text-color);
+            scroll-behavior: smooth; /* Ensure smooth scrolling */
+        }
+
+        body.dark-mode {
+            background-image: url('images/bg-dark-mb.jpg') !important;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #CFD8DC; /* Dark mode text */
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode .glass-card {
+            background: rgba(28, 40, 51, 0.4) !important; /* More transparent dark background */
+            backdrop-filter: blur(10px);
+            box-shadow: none;
+        }
+
+        .dark-mode .glass-card:hover {
+            background: rgba(230, 230, 250, 0.1) !important; /* Light lavender hover effect */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 16px rgba(230, 230, 250, 0.1);
+        }
+
+        nav {
+            background-color: transparent !important;
+            border-bottom: none;
+            backdrop-filter: blur(5px) !important;
+            box-shadow: none;
+        }
+
+        nav a {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--mint-green);
+        }
+
+        .dark-mode nav {
+            background-color: rgba(15, 32, 39, 0.3) !important; /* More transparent dark background */
+            backdrop-filter: blur(8px);
+            border-bottom: none;
+        }
+
+        .dark-mode nav a {
+            color: #FFB6C1 !important; /* Light Pink color for nav links in dark mode */
+        }
+
+        .dark-mode nav a:hover {
+            color: #FFC0CB !important; /* Lighter Pink on hover */
+        }
+
+        .fixed.w-full {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--nav-bg-light);
+        }
+         .dark-mode .fixed.w-full {
+            background-color: rgba(15, 32, 39, 0.3) !important; /* More transparent dark background for fixed nav */
+            backdrop-filter: blur(8px);
+            box-shadow: none;
+         }
+
+         nav ul.md\:flex {
+             gap: 0.75rem !important;
+             align-items: center;
+             padding: 0 !important;
+             margin: 0 !important;
+         }
+
+        nav ul.md\:flex li {
+             padding: 0 !important;
+             margin: 0 !important;
+         }
+
+        nav ul.md\:flex li a {
+            font-weight: 600 !important;
+            padding: 0.5rem 0.75rem !important;
+             color: #000000 !important;
+             transition: all 0.3s ease;
+             text-decoration: none !important;
+             display: inline-block;
+        }
+
+         .dark-mode nav ul.md\:flex li a {
+             color: #CFD8DC !important; /* New Dark mode text color for nav links */
+         }
+
+         nav ul.md\:flex li a:hover {
+             color: var(--mint-green) !important;
+             background-color: transparent !important;
+             border-radius: 0.25rem;
+         }
+         .dark-mode nav ul.md\:flex li a:hover {
+             color: var(--peach) !important; /* Peach hover */
+         }
+
+        .icon-primary {
+            color: #90CAF9; /* New Primary Icon Color */
+        }
+
+        .icon-secondary {
+            color: #FFA726; /* New Secondary Icon Color */
+        }
+
+        .icon-neutral {
+            color: #CFD8DC; /* Text Color */
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+            color: #2E2E2E !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(230, 230, 250, 0.3);
+        }
+
+        .dark-mode .button-primary {
+            background: linear-gradient(135deg, rgba(230, 230, 250, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+            color: #E6E6FA !important;
+            box-shadow: 0 2px 4px rgba(230, 230, 250, 0.1);
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(135deg, #D8BFD8 0%, #E6E6FA 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(230, 230, 250, 0.4);
+        }
+
+        .button-primary:active {
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+            transform: translateY(0);
+        }
+
+         .button-primary {
+             color: #FAFAFA !important; /* Button Text */
+         }
+         .button-primary i {
+             color: #2E2E2E !important;
+         }
+
+        .button-secondary {
+            background: var(--peach);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .button-secondary {
+            background: linear-gradient(to right, #3A3B3C, #0F2027) !important;
+            box-shadow: none; /* Remove default shadow in dark mode */
+        }
+
+        .button-secondary:hover {
+            background: var(--mint-green); /* Mint hover */
+            transform: translateY(-2px);
+        }
+
+        .button-secondary:active {
+            background: linear-gradient(to right, var(--mint-green), var(--peach));
+        }
+
+        .social-icon-button {
+            color: var(--mint-green); /* Primary Icon Color */
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-button:hover {
+            color: #FFA726; /* New Secondary Icon Color for social icons */
+            transform: translateY(-2px);
+        }
+
+        .button-green {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%);
+            color: #FFFFFF !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+        }
+
+        .button-green:hover {
+            background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(67, 160, 71, 0.4);
+        }
+
+        .button-green:active {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%);
+            transform: translateY(0);
+        }
+
+        .button-green i {
+            color: #FFFFFF !important;
+        }
+
+        /* Update section headings with responsive underline effect */
+        .heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #E3F2FD;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .heading:hover::after {
+            width: 100%;
+        }
+
+        /* Dark mode heading styles */
+        .dark-mode .heading {
+            color: #E6E6FA;
+        }
+
+        .dark-mode .heading::after {
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
+        }
+
+        /* Responsive heading sizes */
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem;
+                padding-bottom: 0.75rem;
+            }
+            .heading::after {
+                height: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 1.75rem;
+                padding-bottom: 0.5rem;
+            }
+            .heading::after {
+                height: 2px;
+            }
+        }
+
+        /* Add hover effect for section headings */
+        .heading:hover {
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        /* Add subtle glow effect on hover */
+        .heading:hover {
+            text-shadow: 0 0 10px rgba(230, 230, 250, 0.3);
+        }
+
+        .dark-mode .heading:hover {
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+        }
+
+        .section-subheading {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #CFD8DC; /* New Dark mode text color for subheading */
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        #home h1 {
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: var(--light-text);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: none;
+             text-align: center;
+        }
+
+         body:not(.dark-mode) #home h1 {
+            color: #FFFFFF;
+            font-size: 3rem;
+            font-weight: 900 !important;
+        }
+
+         .dark-mode #home h1 {
+            color: #FFB6C1 !important; /* Light Pink color for name in dark mode */
+            font-weight: 900;
+            font-size: 3.5rem;
+         }
+
+        #home p {
+            color: #CFD8DC; /* New Dark mode text color for hero paragraph */
+            text-align: center;
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+         .dark-mode #home p {
+             color: #CFD8DC; /* New Dark mode text color for hero paragraph */
+         }
+
+        .profile-float {
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-float:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 8px 16px rgba(67, 160, 71, 0.3);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        #about h3 {
+            color: #E3F2FD; /* New Heading Color for About h3 */
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-category h3 {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        body:not(.dark-mode) .skills-category h3 {
+             color: var(--deep-mint);
+             background: none;
+             -webkit-background-clip: unset;
+             background-clip: unset;
+        }
+
+        .project-card h3 {
+            color: #E3F2FD; /* New Heading Color for project h3 */
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        .project-card h3:hover {
+            color: var(--peach); /* Peach hover for project h3 */
+        }
+
+        #contact .heading {
+            margin-bottom: 3rem;
+            color: #E3F2FD; /* New Heading Color for contact heading */
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            text-shadow: none;
+        }
+
+        .dark-mode .section-subheading {
+            color: #CFD8DC; /* New Dark mode text color for subheading */
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .heading, #about h3, .skills-category h3, .project-card h3 {
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+        }
+
+        .theme-switch {
+            width: 3rem;
+            height: 1.5rem;
+            background: #1A237E; /* New Toggle BG */
+            border-radius: 1rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        body:not(.dark-mode) .theme-switch {
+            background: linear-gradient(to right, #CFD8DC, #E3F2FD); /* Example light mode toggle background */
+        }
+
+        .theme-switch-thumb {
+            width: 1.2rem;
+            height: 1.2rem;
+            background: #FFEB3B; /* New Toggle Circle (Light Mode) */
+            border-radius: 50%;
+            position: absolute;
+            top: 0.15rem;
+            left: 0.15rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .theme-switch {
+            background: #1A237E; /* New Toggle BG */
+        }
+
+        .dark-mode .theme-switch-thumb {
+            left: 1.65rem;
+            background: #90CAF9; /* New Toggle Circle (Dark Mode) */
+            color: #1E1E1E; /* Icon color (adjust if needed) */
+        }
+
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: rgba(38, 50, 56, 0.8); /* New Icon BG with transparency */
+            color: #CFD8DC; /* New Dark mode text */
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            box-shadow: none; /* Remove old shadow */
+            transition: all 0.2s ease-in-out;
+        }
+
+        .skill-pill i {
+            margin-right: 0.5rem;
+        }
+
+        .dark-mode .skill-pill {
+             background-color: rgba(38, 50, 56, 0.8); /* New Icon BG with transparency */
+             color: #CFD8DC; /* New Dark mode text */
+             box-shadow: none; /* Remove old shadow */
+        }
+
+        #projects .glass-card h3 {
+            color: var(--mint-green);
+        }
+
+        #projects .glass-card h3:hover {
+            color: var(--peach);
+        }
+
+        /* Removing potential violet hover effect from cards */
+        .glass-card:hover {
+             box-shadow: 0 8px 16px rgba(67, 160, 71, 0.3); /* Keep green shadow from profile image */
+             background: none !important; /* Ensure no background color change */
+        }
+
+        /* Remove any specific violet color on hover if present */
+        /* .about-soft-card:hover { background-color: initial !important; } */
+        /* .project-card:hover { background-color: initial !important; } */
+
+        /* Ensure no background color change on hover for project cards */
+        #projects .glass-card:hover {
+            background-color: rgba(255, 255, 255, 0.7) !important; /* Keep light mode background */
+        }
+
+        /* Ensure no green background on the Tech Stack paragraph */
+        .project-tech-stack-label {
+            background-color: transparent !important;
+        }
+
+        /* Style for Coding Platform h3 headings */
+        #coding-platforms .coding-profile-card h3 {
+            color: #E3F2FD; /* New Heading Color */
+        }
+
+        .dark-mode #coding-platforms .coding-profile-card h3 {
+            color: #E6E6FA !important; /* Lavender color for card headings */
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        /* Style for metric labels in Coding Platform cards */
+        #coding-platforms .coding-profile-card .metric-label {
+            color: #FFA726; /* New Secondary Icon Color */
+        }
+
+        /* Hover effect for Skill Set cards */
+        #skills .glass-card:hover {
+            box-shadow: none; /* Remove old shadow */
+            border-color: var(--mint-green); /* Keep Emerald border */
+        }
+
+        /* Update about cards in dark mode */
+        .dark-mode .about-soft-card {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border-color: rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode .about-soft-card:hover {
+            background: rgba(230, 230, 250, 0.1) !important;
+            border-color: rgba(230, 230, 250, 0.2);
+        }
+
+        /* Update coding platform cards in dark mode */
+        .dark-mode .coding-profile-card {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border-color: rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode .coding-profile-card:hover {
+            background: rgba(230, 230, 250, 0.1) !important;
+            border-color: rgba(230, 230, 250, 0.2);
+        }
+
+        /* Update project cards in dark mode */
+        .dark-mode #projects .glass-card {
+            background: rgba(28, 40, 51, 0.4) !important;
+        }
+
+        .dark-mode #projects .glass-card:hover {
+            background: rgba(230, 230, 250, 0.1) !important;
+        }
+
+        /* Update about card headings to use lavender */
+        .about-soft-card h4 {
+            color: #E6E6FA !important; /* Light lavender color */
+            transition: all 0.3s ease;
+        }
+
+        .about-soft-card:hover h4 {
+            color: #D8BFD8 !important; /* Slightly darker lavender on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Update button styles with lavender effects */
+        .button-primary {
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+            color: #2E2E2E !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(230, 230, 250, 0.3);
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(135deg, #D8BFD8 0%, #E6E6FA 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(230, 230, 250, 0.4);
+        }
+
+        .button-primary:active {
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+            transform: translateY(0);
+        }
+
+        .button-primary i {
+            color: #2E2E2E !important;
+        }
+
+        .button-green {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%);
+            color: #FFFFFF !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+        }
+
+        .button-green:hover {
+            background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(67, 160, 71, 0.4);
+        }
+
+        .button-green:active {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%);
+            transform: translateY(0);
+        }
+
+        .button-green i {
+            color: #FFFFFF !important;
+        }
+
+        /* Update dark mode button styles */
+        .dark-mode .button-primary,
+        .dark-mode .button-green {
+            background: linear-gradient(135deg, rgba(230, 230, 250, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+            color: #E6E6FA !important;
+            box-shadow: 0 2px 4px rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode .button-primary:hover,
+        .dark-mode .button-green:hover {
+            background: linear-gradient(135deg, rgba(216, 191, 216, 0.3) 0%, rgba(230, 230, 250, 0.3) 100%);
+            box-shadow: 0 4px 8px rgba(230, 230, 250, 0.2);
+        }
+
+        .dark-mode .button-primary i,
+        .dark-mode .button-green i {
+            color: #E6E6FA !important;
+        }
+
+        /* Update about section text colors for dark mode */
+        .dark-mode #about p {
+            color: #FFB6C1 !important; /* Light Pink color for paragraph text */
+        }
+
+        .dark-mode #about h3 {
+            color: #FFB6C1 !important; /* Light Pink color for headings */
+        }
+
+        .dark-mode #about h3 span {
+            color: #FFB6C1 !important; /* Light Pink for accent text */
+        }
+
+        .dark-mode .about-soft-card p {
+            color: #FFB6C1 !important; /* Light Pink color for card text */
+        }
+
+        .dark-mode .about-soft-card h4 {
+            color: #FFB6C1 !important; /* Light Pink for card headings */
+        }
+
+        .dark-mode .about-soft-card:hover h4 {
+            color: #FFC0CB !important; /* Lighter Pink on hover */
+        }
+
+        /* Update about section icons in dark mode */
+        .dark-mode .about-soft-card .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(255, 182, 193, 0.1) 100%) !important;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .dark-mode .about-soft-card i {
+            color: #E6E6FA !important; /* Lavender color for icons */
+        }
+
+        .dark-mode .about-soft-card:hover .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 182, 193, 0.2) 100%) !important;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            transform: scale(1.05);
+        }
+
+        .dark-mode .about-soft-card:hover i {
+            color: #D8BFD8 !important; /* Slightly darker lavender on hover */
+        }
+
+        /* Update skill set section for dark mode */
+        .dark-mode #skills p {
+            color: #FFC0CB !important; /* Baby Pink color for paragraph */
+        }
+
+        .dark-mode .skills-category h3 {
+            color: #FFB6C1 !important; /* Light Pink color for card headings */
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        .dark-mode .glass-card {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .glass-card:hover {
+            background: rgba(28, 40, 51, 0.3) !important;
+            border: 1px solid #E6E6FA !important; /* Lavender border on hover */
+            box-shadow: 0 4px 12px rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode .skill-pill {
+            background-color: rgba(255, 182, 193, 0.1) !important; /* Light pink background */
+            color: #FFC0CB !important; /* Baby Pink text */
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .dark-mode .skill-pill:hover {
+            background-color: rgba(230, 230, 250, 0.15) !important; /* Slightly lavender background on hover */
+            border: 1px solid #E6E6FA !important; /* Lavender border on hover */
+        }
+
+        .dark-mode .skill-pill i {
+            color: #FFB6C1 !important; /* Light Pink for icons */
+        }
+
+        /* Update card headings to lavender in dark mode */
+        .dark-mode .skills-category h3 {
+            color: #E6E6FA !important; /* Lavender color for card headings */
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        .dark-mode .project-card h3 {
+            color: #E6E6FA !important; /* Lavender color for project card headings */
+        }
+
+        .dark-mode .project-card h3:hover {
+            color: #D8BFD8 !important; /* Slightly darker lavender on hover */
+        }
+
+        .dark-mode .coding-profile-card h3 {
+            color: #E6E6FA !important; /* Lavender color for coding platform card headings */
+        }
+
+        .dark-mode .heading {
+            color: #E6E6FA !important; /* Lavender color for section headings */
+        }
+
+        .dark-mode .heading::after {
+            background: linear-gradient(135deg, #E6E6FA 0%, #D8BFD8 100%);
+        }
+
+        /* Update skill section headings in dark mode */
+        .dark-mode .skills-category h3[style*="color: #43A047"] {
+            color: #E6E6FA !important; /* Lavender color */
+        }
+
+        /* Remove the inline style and use class-based styling */
+        .skills-category h3 {
+            color: #43A047;
+        }
+
+        .dark-mode .skills-category h3 {
+            color: #E6E6FA !important;
+        }
+
+        /* Skill section heading styles */
+        .skill-heading {
+            color: #43A047;
+        }
+
+        .dark-mode .skill-heading {
+            color: #E6E6FA !important; /* Lavender color in dark mode */
+        }
+
+        /* Update project section for dark mode */
+        .dark-mode .project-card h3 {
+            color: #FFB6C1 !important; /* Light Pink for headings */
+        }
+
+        .dark-mode .project-card p {
+            color: #E6E6FA !important; /* Lavender for paragraphs */
+        }
+
+        .dark-mode .project-card ul li {
+            color: #E6E6FA !important; /* Lavender for list items */
+        }
+
+        .dark-mode .project-card .project-tech-stack-label {
+            color: #E6E6FA !important; /* Lavender for tech stack label */
+        }
+
+        .dark-mode .project-card .button-green {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .project-card .button-green:hover {
+            background: rgba(28, 40, 51, 0.3) !important;
+            border: 1px solid #E6E6FA !important; /* Lavender border on hover */
+            box-shadow: 0 4px 12px rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode .project-card .button-green i {
+            color: #E6E6FA !important; /* Lavender for button icon */
+        }
+
+        .dark-mode .project-card .button-green:hover i {
+            color: #D8BFD8 !important; /* Slightly darker lavender on hover */
+        }
+
+        /* Project section dark mode styles */
+        .dark-mode #projects .glass-card h3 {
+            color: #FFB6C1 !important; /* Light Pink for headings */
+        }
+
+        .dark-mode #projects .glass-card p.text-gray-600 {
+            color: #E6E6FA !important; /* Lavender for paragraphs */
+        }
+
+        .dark-mode #projects .glass-card ul li {
+            color: #E6E6FA !important; /* Lavender for list items */
+        }
+
+        .dark-mode #projects .glass-card .project-tech-stack-label {
+            color: #E6E6FA !important; /* Lavender for tech stack label */
+        }
+
+        .dark-mode #projects .glass-card .button-green {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            color: #E6E6FA !important;
+        }
+
+        .dark-mode #projects .glass-card .button-green:hover {
+            background: rgba(28, 40, 51, 0.3) !important;
+            border: 1px solid #E6E6FA !important; /* Lavender border on hover */
+            box-shadow: 0 4px 12px rgba(230, 230, 250, 0.1);
+        }
+
+        .dark-mode #projects .glass-card .button-green i {
+            color: #E6E6FA !important; /* Lavender for button icon */
+        }
+
+        .dark-mode #projects .glass-card .button-green:hover i {
+            color: #D8BFD8 !important; /* Slightly darker lavender on hover */
+        }
+
+        /* Override any existing dark mode text colors */
+        .dark-mode .text-gray-300 {
+            color: #E6E6FA !important;
+        }
+
+        /* Update project section labels and spans in dark mode */
+        .dark-mode #projects .glass-card .text-accent {
+            color: #FFB6C1 !important; /* Light Pink for Key Features label */
+        }
+
+        .dark-mode #projects .glass-card span.text-sm {
+            color: #FFB6C1 !important; /* Light Pink for other span tags */
+        }
+
+        .dark-mode #projects .glass-card span.px-3 {
+            color: #FFB6C1 !important; /* Light Pink for category tags */
+        }
+
+        .dark-mode #projects .glass-card .metric-label {
+            color: #FFB6C1 !important; /* Light Pink for metric labels */
+        }
+
+        /* Coding platforms section dark mode styles */
+        .dark-mode #coding-platforms .coding-profile-card p.text-gray-600 {
+            color: #E6E6FA !important; /* Lavender for paragraphs */
+        }
+
+        .dark-mode #coding-platforms .coding-profile-card .metric-label,
+        .dark-mode #coding-platforms .coding-profile-card .rating-label-peach,
+        .dark-mode #coding-platforms .coding-profile-card span[class*="metric-label"] {
+            color: #FFB6C1 !important; /* Light Pink for all metric labels */
+        }
+
+        .dark-mode #coding-platforms .coding-profile-card .metric-value,
+        .dark-mode #coding-platforms .coding-profile-card .rating-stars,
+        .dark-mode #coding-platforms .coding-profile-card .rating-stars i {
+            color: #E6E6FA !important; /* Lavender for metric values and stars */
+        }
+
+        /* Override any existing dark mode text colors in coding platforms */
+        .dark-mode #coding-platforms .text-gray-300 {
+            color: #E6E6FA !important;
+        }
+
+        /* Update coding platforms section description in dark mode */
+        .dark-mode #coding-platforms p.text-center.text-lg {
+            color: #FFB6C1 !important; /* Light Pink for the description paragraph */
+        }
+
+        .dark-mode #coding-platforms .text-gray-700 {
+            color: #FFB6C1 !important; /* Light Pink override for any gray text */
+        }
+
+        /* Update coding profile icons in dark mode */
+        .dark-mode .coding-profile-card i {
+            color: #FFB6C1 !important; /* Light Pink for icons */
+        }
+
+        .dark-mode .coding-profile-card .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(255, 182, 193, 0.1) 100%) !important;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .dark-mode .coding-profile-card:hover .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 182, 193, 0.2) 100%) !important;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .dark-mode .coding-profile-card:hover i {
+            color: #FFC0CB !important; /* Slightly lighter pink on hover */
+        }
+
+        /* Update contact section dark mode styles */
+        .dark-mode #contact p.text-center.text-lg {
+            color: #FFB6C1 !important; /* Light Pink for the description paragraph */
+        }
+
+        .dark-mode #contact .glass-card {
+            background: rgba(28, 40, 51, 0.3) !important; /* More transparent background */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 182, 193, 0.1);
+        }
+
+        .dark-mode #contact .glass-card:hover {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .dark-mode #contact input,
+        .dark-mode #contact textarea {
+            background: rgba(28, 40, 51, 0.2) !important;
+            border: 1px solid rgba(255, 182, 193, 0.1);
+            color: #E6E6FA !important;
+        }
+
+        .dark-mode #contact input:focus,
+        .dark-mode #contact textarea:focus {
+            border-color: #FFB6C1 !important;
+            box-shadow: 0 0 0 2px rgba(255, 182, 193, 0.1) !important;
+        }
+
+        .dark-mode #contact input::placeholder,
+        .dark-mode #contact textarea::placeholder {
+            color: rgba(255, 182, 193, 0.5) !important;
+        }
+
+        .dark-mode #contact label {
+            color: #FFB6C1 !important;
+        }
+
+        .dark-mode #contact .social-icon-button {
+            color: #FFB6C1 !important;
+        }
+
+        .dark-mode #contact .social-icon-button:hover {
+            color: #FFC0CB !important;
+            transform: translateY(-2px);
+        }
+
+        /* Update social links styling in dark mode */
+        .dark-mode .social-icon-button {
+            color: #FFB6C1 !important; /* Light Pink for social icons */
+            background: transparent !important;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode .social-icon-button:hover {
+            color: #FFC0CB !important; /* Lighter Pink on hover */
+            transform: translateY(-2px);
+            background: rgba(255, 182, 193, 0.1) !important; /* Very light pink background on hover */
+        }
+
+        .dark-mode .social-icon-button:active {
+            transform: translateY(0);
+        }
+
+        /* Update social links container in dark mode */
+        .dark-mode #contact .flex.justify-center.gap-6 {
+            background: transparent;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        /* Update contact form button hover in dark mode */
+        .dark-mode #contact .button-green {
+            background: rgba(28, 40, 51, 0.4) !important;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            color: #FFB6C1 !important;
+        }
+
+        .dark-mode #contact .button-green:hover {
+            background: rgba(255, 182, 193, 0.1) !important;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            color: #FFC0CB !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.1);
+        }
+
+        .dark-mode #contact .button-green:active {
+            transform: translateY(0);
+            background: rgba(255, 182, 193, 0.15) !important;
+        }
+
+        .dark-mode #contact .button-green i {
+            color: #FFB6C1 !important;
+        }
+
+        .dark-mode #contact .button-green:hover i {
+            color: #FFC0CB !important;
+        }
+
+        /* Update projects section paragraph in dark mode */
+        .dark-mode #projects p.text-center.text-lg {
+            color: #FFB6C1 !important; /* Light Pink for the description paragraph */
+        }
+
+        /* Restore original skill icons in dark mode */
+        .dark-mode .skill-pill i.fa-brands.fa-python {
+            color: #306998 !important; /* Python blue */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-java {
+            color: #007396 !important; /* Java blue */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-js-square {
+            color: #F7DF1E !important; /* JavaScript yellow */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-html5 {
+            color: #E34F26 !important; /* HTML5 orange */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-css3-alt {
+            color: #1572B6 !important; /* CSS3 blue */
+        }
+        .dark-mode .skill-pill i.fa-solid.fa-database {
+            color: #4479A1 !important; /* MySQL blue */
+        }
+        .dark-mode .skill-pill i.fa-solid.fa-leaf {
+            color: #47A248 !important; /* MongoDB green */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-react {
+            color: #61DAFB !important; /* React blue */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-bootstrap {
+            color: #7952B3 !important; /* Bootstrap purple */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-aws {
+            color: #FF9900 !important; /* AWS orange */
+        }
+        .dark-mode .skill-pill i.fa-brands.fa-git-alt {
+            color: #F05032 !important; /* Git red */
+        }
+
+        /* Style theme toggle button in dark mode */
+        .dark-mode .theme-switch {
+            background: rgba(255, 182, 193, 0.2) !important; /* Light pink background */
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 2px 4px rgba(255, 182, 193, 0.1);
+        }
+
+        .dark-mode .theme-switch-thumb {
+            background: #FFB6C1 !important; /* Light pink thumb */
+            color: #1E1E1E !important; /* Dark icon color */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .theme-switch:hover {
+            background: rgba(255, 182, 193, 0.3) !important;
+            border-color: rgba(255, 182, 193, 0.4);
+        }
+
+        .dark-mode .theme-switch-thumb:hover {
+            background: #FFC0CB !important; /* Lighter pink on hover */
+        }
+
+        /* Light mode theme toggle styles */
+        .theme-switch {
+            background: rgba(67, 160, 71, 0.2) !important; /* Mint green background */
+            border: 1px solid rgba(67, 160, 71, 0.3);
+            box-shadow: 0 2px 4px rgba(67, 160, 71, 0.1);
+        }
+
+        .theme-switch-thumb {
+            background: #43A047 !important; /* Mint green thumb */
+            color: #FFFFFF !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-switch:hover {
+            background: rgba(67, 160, 71, 0.3) !important;
+            border-color: rgba(67, 160, 71, 0.4);
+        }
+
+        .theme-switch-thumb:hover {
+            background: #4CAF50 !important; /* Lighter green on hover */
+        }
+
+        /* Update hero section paragraph in light mode */
+        body:not(.dark-mode) #home p {
+            color: #000000 !important; /* Black color */
+            font-weight: 500; /* Slightly bolder for better readability */
+        }
+
+        /* Update section headings in light mode */
+        body:not(.dark-mode) .heading {
+            color: #2E7D32 !important; /* Deep green color */
+        }
+
+        body:not(.dark-mode) .heading::after {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%) !important;
+        }
+
+        /* Update about section card headings in light mode */
+        body:not(.dark-mode) .about-soft-card h4 {
+            color: #43A047 !important; /* Medium green color */
+        }
+
+        body:not(.dark-mode) .about-soft-card:hover h4 {
+            color: #2E7D32 !important; /* Deep green on hover */
+        }
+
+        /* Update about section card icons in light mode */
+        body:not(.dark-mode) .about-soft-card i {
+            color: #43A047 !important; /* Medium green color */
+        }
+
+        body:not(.dark-mode) .about-soft-card:hover i {
+            color: #2E7D32 !important; /* Deep green on hover */
+        }
+
+        /* Update about section card icon backgrounds in light mode */
+        body:not(.dark-mode) .about-soft-card .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.2) 0%, rgba(46, 125, 50, 0.1) 100%) !important;
+            border: 1px solid rgba(67, 160, 71, 0.2);
+        }
+
+        body:not(.dark-mode) .about-soft-card:hover .coding-profile-icon-fade {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.3) 0%, rgba(46, 125, 50, 0.2) 100%) !important;
+            border: 1px solid rgba(67, 160, 71, 0.3);
+        }
+
+        /* Update source code button in light mode */
+        body:not(.dark-mode) .button-green {
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%) !important;
+            color: #FFFFFF !important;
+            border: none;
+            box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+        }
+
+        body:not(.dark-mode) .button-green:hover {
+            background: linear-gradient(135deg, #4CAF50 0%, #43A047 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(67, 160, 71, 0.4);
+        }
+
+        body:not(.dark-mode) .button-green i {
+            color: #FFFFFF !important;
+        }
+
+        /* Update coding platforms headings in light mode */
+        body:not(.dark-mode) #coding-platforms .coding-profile-card h3 {
+            color: #43A047 !important; /* Medium green color */
+        }
+
+        body:not(.dark-mode) #coding-platforms .coding-profile-card:hover h3 {
+            color: #2E7D32 !important; /* Deep green on hover */
+        }
+
+        /* Update deliver message button in light mode */
+        body:not(.dark-mode) #contact .button-green {
+            background: linear-gradient(135deg, #6ED2BC 0%, #5BC0A8 100%) !important;
+            color: #FFFFFF !important;
+            border: none;
+            box-shadow: 0 2px 4px rgba(110, 210, 188, 0.3);
+        }
+
+        body:not(.dark-mode) #contact .button-green:hover {
+            background: linear-gradient(135deg, #7ED9C4 0%, #6ED2BC 100%) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(110, 210, 188, 0.4);
+        }
+
+        body:not(.dark-mode) #contact .button-green i {
+            color: #FFFFFF !important;
+        }
+
+        body:not(.dark-mode) #contact .button-green:hover i {
+            color: #FFFFFF !important;
+            transform: translateX(2px); /* Slight icon movement on hover */
+        }
+
+        /* Update project section buttons in light mode */
+        body:not(.dark-mode) #projects .button-green {
+            background: linear-gradient(135deg, #6ED2BC 0%, #5BC0A8 100%) !important;
+            color: #FFFFFF !important;
+            border: none;
+            box-shadow: 0 2px 4px rgba(110, 210, 188, 0.3);
+        }
+
+        body:not(.dark-mode) #projects .button-green:hover {
+            background: linear-gradient(135deg, #7ED9C4 0%, #6ED2BC 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(110, 210, 188, 0.4);
+        }
+
+        body:not(.dark-mode) #projects .button-green i {
+            color: #FFFFFF !important;
+        }
+
+        body:not(.dark-mode) #projects .button-green:hover i {
+            color: #FFFFFF !important;
+            transform: translateX(2px);
+        }
+
+        /* Update hero section name in light mode */
+        body:not(.dark-mode) #home h1.text-4xl.sm\:text-5xl.lg\:text-6xl {
+            color: #000000 !important; /* Black color */
+            font-weight: 700; /* Reduced from 900 to 700 */
+            text-shadow: none; /* Remove text shadow */
+            transition: all 0.3s ease;
+        }
+
+        body:not(.dark-mode) #home h1.text-4xl.sm\:text-5xl.lg\:text-6xl:hover {
+            color: #424242 !important; /* Dark gray on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Update skill set cards hover in light mode */
+        body:not(.dark-mode) #skills .glass-card {
+            background: rgba(255, 255, 255, 0.7) !important;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover {
+            background: transparent !important;
+            border: 1px solid #E6E6FA !important; /* Lavender border */
+            box-shadow: 0 4px 12px rgba(230, 230, 250, 0.2);
+            transform: translateY(-2px);
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover h3 {
+            color: #43A047 !important; /* Keep green color for heading on hover */
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover .skill-pill {
+            background-color: rgba(230, 230, 250, 0.1) !important;
+            border: 1px solid rgba(230, 230, 250, 0.2);
+        }
+
+        /* Update skill set cards in light mode */
+        body:not(.dark-mode) #skills .glass-card {
+            background: #FFFFFF !important;
+            border: 1px solid #E6E6FA;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover {
+            background: #FFFFFF !important;
+            border: 2px solid #E6E6FA !important;
+            box-shadow: 0 6px 12px rgba(230, 230, 250, 0.3);
+            transform: translateY(-2px);
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover h3 {
+            color: #43A047 !important;
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover .skill-pill {
+            background-color: #F8F8FF !important;
+            border: 1px solid #E6E6FA;
+        }
+
+        /* Update skill-pill in light mode */
+        body:not(.dark-mode) .skill-pill {
+            background-color: rgba(230, 230, 250, 0.2) !important;
+            border: 1px solid rgba(230, 230, 250, 0.3);
+            color: #424242;
+            transition: all 0.3s ease;
+        }
+
+        body:not(.dark-mode) .skill-pill:hover {
+            background-color: rgba(230, 230, 250, 0.3) !important;
+            border: 1px solid rgba(230, 230, 250, 0.4);
+            transform: translateY(-1px);
+        }
+
+        body:not(.dark-mode) #skills .glass-card:hover .skill-pill {
+            background-color: rgba(230, 230, 250, 0.2) !important;
+            border: 1px solid rgba(230, 230, 250, 0.3);
+        }
+
+        /* Update button styles for hero and about sections in light mode */
+        body:not(.dark-mode) #home .button-primary,
+        body:not(.dark-mode) #about .button-primary {
+            background: linear-gradient(135deg, #98FB98 0%, #FFB6C1 100%) !important;
+            color: #424242 !important;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(152, 251, 152, 0.2);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body:not(.dark-mode) #home .button-primary:hover,
+        body:not(.dark-mode) #about .button-primary:hover,
+        body:not(.dark-mode) #home .button-primary:active,
+        body:not(.dark-mode) #about .button-primary:active,
+        body:not(.dark-mode) #home .button-primary:focus,
+        body:not(.dark-mode) #about .button-primary:focus {
+            background: linear-gradient(135deg, #90EE90 0%, #FFA07A 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(152, 251, 152, 0.3);
+        }
+
+        body:not(.dark-mode) #home .button-primary:active,
+        body:not(.dark-mode) #about .button-primary:active {
+            transform: translateY(0);
+            background: linear-gradient(135deg, #98FB98 0%, #FFB6C1 100%) !important;
+        }
+
+        body:not(.dark-mode) #home .button-primary i,
+        body:not(.dark-mode) #about .button-primary i {
+            color: #424242 !important;
+            transition: transform 0.3s ease;
+        }
+
+        body:not(.dark-mode) #home .button-primary:hover i,
+        body:not(.dark-mode) #about .button-primary:hover i,
+        body:not(.dark-mode) #home .button-primary:active i,
+        body:not(.dark-mode) #about .button-primary:active i,
+        body:not(.dark-mode) #home .button-primary:focus i,
+        body:not(.dark-mode) #about .button-primary:focus i {
+            transform: translateX(2px);
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            /* Adjust padding for sections to clear fixed nav when menu is closed */
+            #home {
+                padding-top: 6rem !important; /* Add padding to clear fixed nav */
+            }
+
+            /* Navigation */
+            nav ul.md\:flex li a {
+                font-size: 0.9rem !important;
+                padding: 0.4rem 0.6rem !important;
+            }
+
+            /* Hero Section */
+            #home h1 {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem;
+            }
+
+            #home p {
+                font-size: 1rem !important;
+                margin-bottom: 1rem;
+            }
+
+            /* About Section */
+            #about h3 {
+                font-size: 1.75rem !important;
+            }
+
+            #about p {
+                font-size: 0.95rem !important;
+            }
+
+            .about-soft-card h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .about-soft-card p {
+                font-size: 0.85rem !important;
+            }
+
+            /* Skills Section */
+            .heading {
+                font-size: 2rem !important;
+            }
+
+            .section-subheading {
+                font-size: 1rem !important;
+                margin-bottom: 2rem;
+            }
+
+            .skill-pill {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+            }
+
+            /* Projects Section */
+            .project-card h3 {
+                font-size: 1.2rem !important;
+            }
+
+            .project-card p {
+                font-size: 0.85rem !important;
+            }
+
+            .project-card ul li {
+                font-size: 0.85rem !important;
+            }
+
+            /* Coding Platforms Section */
+            .coding-profile-card h3 {
+                font-size: 1.2rem !important;
+            }
+
+            .coding-profile-card p {
+                font-size: 0.85rem !important;
+            }
+
+            .metric-label, .metric-value {
+                font-size: 0.85rem !important;
+            }
+
+            /* Contact Section */
+            #contact input,
+            #contact textarea {
+                font-size: 0.9rem !important;
+                padding: 0.75rem !important;
+            }
+
+            #contact label {
+                font-size: 0.9rem !important;
+            }
+
+            /* Buttons */
+            .button-primary,
+            .button-green {
+                font-size: 0.9rem !important;
+                padding: 0.6rem 1.2rem !important;
+            }
+
+            /* Icons */
+            .coding-profile-icon-fade {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            .coding-profile-icon-fade i {
+                font-size: 1.5rem !important;
+            }
+
+            /* Cards */
+            .glass-card {
+                padding: 1rem !important;
+            }
+
+            /* Spacing adjustments */
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            section {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            /* Keep profile photo size unchanged */
+            .profile-float {
+                width: 12rem !important;
+                height: 12rem !important;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            #home h1 {
+                font-size: 2rem !important;
+            }
+
+            .heading {
+                font-size: 1.75rem !important;
+            }
+
+            .button-primary,
+            .button-green {
+                font-size: 0.85rem !important;
+                padding: 0.5rem 1rem !important;
+            }
+
+            .glass-card {
+                padding: 0.75rem !important;
+            }
+        }
+
+        /* Refined styles for the mobile menu button and links */
+
+        /* Mobile Menu Button */
+        #mobile-menu-btn,
+        #mobile-menu-close-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 0.5rem; /* Add padding to make it easier to click */
+            border-radius: 0.25rem; /* subtle rounded corners */
+        }
+
+         #mobile-menu-btn:hover,
+         #mobile-menu-close-btn:hover {
+             background-color: rgba(156, 163, 175, 0.1); /* Subtle hover background */
+         }
+
+          .dark-mode #mobile-menu-btn:hover,
+          .dark-mode #mobile-menu-close-btn:hover {
+               background-color: rgba(243, 244, 246, 0.1); /* Subtle hover background in dark mode */
+          }
+
+        #mobile-menu-btn i,
+        #mobile-menu-close-btn i {
+            transition: color 0.3s ease;
+        }
+
+        body:not(.dark-mode) #mobile-menu-btn i {
+            color: #000000; /* Black in light mode */
+        }
+
+        .dark-mode #mobile-menu-btn i {
+            color: #F3F4F6; /* Light gray in dark mode */
+        }
+
+         #mobile-menu-close-btn i {
+             color: #F3F4F6; /* White color for close button icon */
+         }
+
+         .dark-mode #mobile-menu-close-btn i {
+             color: #E5E7EB; /* Lighter gray in dark mode */
+         }
+
+
+
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            /* Full screen fixed overlay */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Initially hidden */
+            display: none; /* Controlled by JS active class */
+            /* Semi-transparent background with blur */
+            background: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background for light mode */
+            backdrop-filter: blur(10px);
+            z-index: 50; /* Ensure it's above other content */
+            /* Flexbox for centering content */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Smooth transition for visibility */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0; /* Start hidden */
+            visibility: hidden;
+        }
+
+        /* Active state to display the menu */
+        #mobile-menu.is-active {
+            display: flex; /* Or block, depending on layout needs */
+            opacity: 1; /* Fully visible */
+            visibility: visible;
+        }
+
+
+        .dark-mode #mobile-menu {
+            background: rgba(17, 24, 39, 0.95); /* Darker semi-transparent background for dark mode */
+        }
+
+        /* Mobile Menu Links */
+        .nav-link-mobile {
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            padding: 0.5rem 0; /* Vertical padding for spacing */
+            transition: color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            color: #FFFFFF; /* Default link color in light mode */
+            text-decoration: none; /* Remove default underline */
+        }
+
+        .dark-mode .nav-link-mobile {
+            color: #E5E7EB; /* Light gray text in dark mode */
+        }
+
+        /* Underline effect on hover */
+        .nav-link-mobile::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: currentColor; /* Use the current text color for the underline */
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link-mobile:hover::after {
+            width: 50%; /* Underline appears on hover */
+        }
+
+        /* Hover color for links */
+        body:not(.dark-mode) .nav-link-mobile:hover {
+            color: var(--mint-green); /* Mint green hover in light mode */
+            transform: translateY(-2px); /* Subtle hover effect */
+        }
+
+        .dark-mode .nav-link-mobile:hover {
+            color: var(--peach); /* Peach hover in dark mode */
+            transform: translateY(-2px); /* Subtle hover effect */
+        }
+
+        /* Styling for the list containing links */
+        #mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            width: 100%; /* Ensure list takes full width for centering */
+        }
+
+        /* Spacing between list items (links) */
+        #mobile-menu li {
+            margin: 0.8rem 0; /* Adjusted spacing */
+        }
+
+        /* Ensure title and close button are visible and layered correctly */
+        #mobile-menu .portfolio-title,
+        #mobile-menu-close-btn {
+            z-index: 60; /* Ensure they are above the menu links */
+        }
+
+        /* Styling for the Portfolio title in the mobile menu */
+        #mobile-menu .portfolio-title {
+             color: #F3F4F6; /* Light gray */
+             font-size: 1.8rem;
+             font-weight: bold;
+             position: absolute; /* Position title */
+             top: 1.5rem; /* Adjust position */
+             left: 1.5rem; /* Adjust position */
+        }
+
+        .dark-mode #mobile-menu .portfolio-title {
+             color: #E5E7EB; /* Lighter gray in dark mode */
+        }
+
+        /* Styling for the close button */
+        #mobile-menu-close-btn {
+            font-size: 2.2rem;
+            color: #F3F4F6; /* Light gray */
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: absolute; /* Position button */
+            top: 1.5rem; /* Adjust position */
+            right: 1.5rem; /* Adjust position */
+        }
+
+         .dark-mode #mobile-menu-close-btn {
+            color: #E5E7EB; /* Lighter gray in dark mode */
+        }
+
+         /* Responsive adjustments for smaller mobile screens */
+         @media (max-width: 768px) {
+             .nav-link-mobile {
+                 font-size: 1.4rem;
+                 padding: 0.3rem 0;
+             }
+
+             #mobile-menu li {
+                 margin: 0.6rem 0;
+             }
+
+             #mobile-menu .portfolio-title {
+                 font-size: 1.4rem;
+                 top: 1rem; /* Adjust position */
+                 left: 1rem; /* Adjust position */
+             }
+
+             #mobile-menu-close-btn {
+                 font-size: 1.8rem;
+                  top: 1rem; /* Adjust position */
+                  right: 1rem; /* Adjust position */
+             }
+         }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full backdrop-blur-md shadow-md z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold">
+                    <a href="#home" class="hover:text-accent transition-colors flex items-center">
+                        <i class="fas fa-code text-accent mr-2"></i>
+                        <span class="text-gray-900 dark:text-gray-100">Portfolio</span>
+                    </a>
+                </div>
+                <ul class="hidden md:flex items-center space-x-6">
+                    <li><a href="#home" class="nav-link hover:text-accent transition-colors">Home</a></li>
+                    <li><a href="#about" class="nav-link hover:text-accent transition-colors">About</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-accent transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="nav-link hover:text-accent transition-colors">Projects</a></li>
+                    <li><a href="#coding-platforms" class="nav-link hover:text-accent transition-colors">Coding Platforms</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+                <div class="flex items-center space-x-4">
+                    <div id="theme-toggle" class="theme-switch">
+                        <div class="theme-switch-thumb">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                    <button class="md:hidden text-2xl p-2 rounded-lg transition-colors duration-300" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-gray-900 dark:text-gray-100"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex flex-col justify-center items-center" id="mobile-menu" style="display: none;">
+                <div class="absolute top-6 left-6 text-2xl font-bold">
+                    <span class="text-white">Portfolio</span>
+                </div>
+                <button class="absolute top-6 right-6 text-4xl p-2 rounded-lg transition-colors duration-300" id="mobile-menu-close-btn">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+                <ul class="py-8 text-center w-full">
+                    <li>
+                        <a href="#home" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#coding-platforms" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            Coding Platforms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link-mobile block py-2 transition-colors duration-300">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="animate-float mb-8">
+                <img src="images/profile.jpg" 
+                     alt="Greeshma Sathvika Meesala" 
+                     class="w-48 h-48 rounded-full mx-auto shadow-lg border-4 border-accent object-cover profile-float">
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Hello!! I'm Greeshma Sathvika.</h1>
+            
+            <!-- Place this directly under your name in the hero section -->
+            <p class="text-lg mt-2 mb-6">
+              Passionate Full-Stack Developer | Turning ideas into elegant, user-friendly digital solutions.
+            </p>
+            
+            
+            <div class="flex flex-wrap justify-center gap-8 mt-8">
+                <a href="#projects" class="button-primary">
+                    <i class="fas fa-eye"></i>
+                    Know more
+                </a>
+                <button
+                    onclick="window.location.href='#contact'"
+                    class="button-primary"
+                >
+                    <i class="fas fa-envelope"></i>
+                    Say Hello
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Place this image in your hero section, ideally below your name or buttons -->
+    
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        
+        <div class="container mx-auto px-4">
+            <h2 class="heading">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <!-- Left Column -->
+                 
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold leading-tight">
+                        Creating Impact through <span class="text-accent">Code & Creativity</span>
+                    </h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        As a passionate full-stack developer, I thrive on building innovative and efficient software solutions that make a real-world difference. My journey in technology is fueled by a relentless curiosity and a commitment to mastering the tools that shape our digital landscape. I specialize in transforming complex challenges into elegant, user-friendly applications, constantly seeking opportunities to learn and grow.
+                    </p>
+                    <div class="flex flex-wrap gap-6 pt-4">
+                        <button onclick="window.location.href='#contact'" class="button-primary">
+                            <i class="fas fa-envelope"></i>
+                            Let's Connect!
+                        </button>
+                        <button onclick="window.open('Greeshma_Resume.pdf')" class="button-primary" download>
+                            <i class="fas fa-download"></i>
+                            Get my CV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column - Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="about-soft-card flex flex-col items-center text-center shadow-xl transition-all duration-300 border border-green-200 bg-white/60 backdrop-blur-lg p-6 rounded-2xl relative">
+                        <div class="mb-4 flex items-center justify-center w-16 h-16 rounded-full coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #E8F5E9 100%)">
+                            <i class="fas fa-laptop-code text-3xl" style="color: #43A047;"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2" style="color: #43A047;">Full-Stack Development</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Crafting robust and scalable web applications from front to back-end.</p>
+                    </div>
+                    <div class="about-soft-card flex flex-col items-center text-center shadow-xl transition-all duration-300 border border-green-200 bg-white/60 backdrop-blur-lg p-6 rounded-2xl relative">
+                        <div class="mb-4 flex items-center justify-center w-16 h-16 rounded-full coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #E8F5E9 100%)">
+                            <i class="fas fa-brain text-3xl" style="color: #43A047;"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2" style="color: #43A047;">Problem Solving</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Approaching challenges with analytical thinking and creative solutions.</p>
+                    </div>
+                    <div class="about-soft-card flex flex-col items-center text-center shadow-xl transition-all duration-300 border border-green-200 bg-white/60 backdrop-blur-lg p-6 rounded-2xl relative">
+                        <div class="mb-4 flex items-center justify-center w-16 h-16 rounded-full coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #E8F5E9 100%)">
+                            <i class="fas fa-lightbulb text-3xl" style="color: #43A047;"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2" style="color: #43A047;">Innovation & Design</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Merging technical skills with a passion for intuitive user experiences.</p>
+                    </div>
+                    <div class="about-soft-card flex flex-col items-center text-center shadow-xl transition-all duration-300 border border-green-200 bg-white/60 backdrop-blur-lg p-6 rounded-2xl relative">
+                        <div class="mb-4 flex items-center justify-center w-16 h-16 rounded-full coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #E8F5E9 100%)">
+                            <i class="fas fa-book-open text-3xl" style="color: #43A047;"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2" style="color: #43A047;">Continuous Learning</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Staying ahead by constantly exploring new technologies and methodologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="heading">Skill Set</h2>
+    <p class="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">
+      A blend of languages, frameworks, and tools that empower me to build robust, scalable, and user-friendly solutions.
+    </p>
+    <div class="space-y-14 max-w-5xl mx-auto">
+      <!-- Languages -->
+      <div class="glass-card rounded-3xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-8 tracking-wide skill-heading">Languages</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div class="skill-pill">
+            <i class="fa-brands fa-python text-blue-500"></i> Python
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-java text-red-600"></i> Java
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-js-square text-yellow-400"></i> JavaScript
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-html5 text-orange-500"></i> HTML5
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-css3-alt text-blue-400"></i> CSS3
+          </div>
+          
+        </div>
+      </div>
+      <!-- Databases -->
+      <div class="glass-card rounded-3xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-8 tracking-wide skill-heading">Databases</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div class="skill-pill">
+            <i class="fa-solid fa-database text-blue-700"></i> MySQL
+          </div>
+          <div class="skill-pill">
+            <i class="fa-solid fa-leaf text-green-600"></i> MongoDB
+          </div>
+        </div>
+      </div>
+      <!-- Tools -->
+      <div class="glass-card rounded-3xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-8 tracking-wide skill-heading">Tools</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div class="skill-pill">
+            <i class="fa-solid fa-leaf text-green-700"></i> Spring Boot
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-react text-blue-400"></i> React.js
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-bootstrap text-purple-600"></i> Bootstrap
+          </div>
+          <div class="skill-pill">
+            <i class="fa-solid fa-chart-line text-orange-500"></i> XGBoost
+          </div>
+          <div class="skill-pill">
+            <i class="fa-solid fa-stream text-yellow-700"></i> Streamlit
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-aws text-yellow-500"></i> AWS
+          </div>
+          <div class="skill-pill">
+            <i class="fa-brands fa-git-alt text-red-600"></i> Git &amp; GitHub
+          </div>
+          <div class="skill-pill">
+            <i class="fa-solid fa-code text-gray-700"></i> VS Code
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="heading">My Projects</h2>
+            <p class="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">
+              A showcase of my work—each project reflects my passion for problem-solving, creativity, and delivering real-world impact.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                
+                <!-- Project Card: Investor Self-Service Portal -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <img src="images/investor-portal.jpg" 
+                             alt="Investor Self-Service Portal Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611974789555-67ea29741017?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Investor Self Services</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">Finance</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">A secure web platform providing real-time investment portfolio management and financial services.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">Java</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">MySQL</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">REST APIs</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Real-time portfolio tracking</li>
+                                    <li>Investment quick actions</li>
+                                    <li>Automated notifications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/Investors-Self-Service', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card: Travel Guide Platform -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <img src="images/travel-guide.jpg" 
+                             alt="Travel Guide Platform Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1539635278303-d8b01dbf4e8d?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Travel Guide Platform</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">Web</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">An interactive platform providing comprehensive travel information and medical guidance for travelers.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">HTML5</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">CSS3</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">JavaScript</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Destination guides</li>
+                                    <li>Medical tips database</li>
+                                    <li>API integration ready</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/voyage', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://voyage-chi-six.vercel.app/', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card: Petty Cash Book -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <img src="images/petty-cash.jpg" 
+                             alt="Petty Cash Book Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503614472-8c93d56e92fc?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Petty Cash Book</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">Finance</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">A modern expense tracking application for efficient petty cash management and financial oversight.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">JavaScript</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">MongoDB</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">HTML/CSS</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Expense tracking</li>
+                                    <li>Transaction history</li>
+                                    <li>Balance reports</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/Hackathon', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card: Online Payment Fraud Detection -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <img src="images/fraud-detection.jpg" 
+                             alt="Online Payment Fraud Detection Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Fraud Detection System</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">ML/AI</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">An intelligent system for real-time fraud detection in online payments using machine learning.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">Python</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">SVM</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">XGBoost</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">Streamlit</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Real-time prediction</li>
+                                    <li>Interactive dashboard</li>
+                                    <li>ML model integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/UPI-Fraud-Detection', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+                <!-- Project Card: Marketing Campaign Management System -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <!-- Primary Image -->
+                        <img src="images/marketing-campaign.jpg" 
+                             alt="Marketing Campaign Management System Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578357473064-ce6e9b2d231d?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Marketing Campaign Management</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">Full Stack</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">A comprehensive web application for managing and tracking marketing campaigns with real-time analytics.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">Java</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">Spring Boot</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">MySQL</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">JSP</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Campaign creation & management</li>
+                                    <li>Real-time analytics dashboard</li>
+                                    <li>Secure authentication system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/Campaign-System', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://greeshma-sathvika-campaign-system.vercel.app/', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Project Card: Rock Paper Scissors Game -->
+                <div class="glass-card group overflow-hidden flex flex-col h-full p-0 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-white/60 dark:bg-gray-900/60">
+                    <div class="relative overflow-hidden rounded-t-3xl mb-4 aspect-video">
+                        <img src="images/rock-paper-scissors.jpg" 
+                             alt="Rock Paper Scissors Game Project Image" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1595769224162-64905720f300?w=500&h=300&fit=crop';">
+                    </div>
+                    <div class="flex-grow p-6 pt-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Rock Paper Scissors</h3>
+                            <span class="text-sm px-3 py-1 rounded-full">Game</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">An interactive game with computer opponent, featuring score tracking and animated gameplay.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-semibold project-tech-stack-label mb-1">Tech Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">JavaScript</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">HTML5</span>
+                                    <span class="px-2 py-1 text-xs rounded" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFECB3 100%); color: #424242;">CSS3</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-accent mb-1">Key Features</p>
+                                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>Interactive gameplay</li>
+                                    <li>Score tracking</li>
+                                    <li>Animated responses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 mt-auto p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://github.com/GreeshmaSathvikaMeesala/Rock-Paper-Scissors', '_blank')"
+                            aria-label="Source Code">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </button>
+                        <button
+                            type="button"
+                            class="button-green text-sm flex-1 text-center flex items-center justify-center gap-2"
+                            onclick="window.open('https://rock-paper-scissors-blue-nine.vercel.app/', '_blank')"
+                            aria-label="View Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Coding Platforms Section -->
+     <section id="coding-platforms" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="heading">Coding Platforms</h2>
+            <p class="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">
+  Actively enhancing my problem-solving skills on these platforms.
+</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                 <!-- LeetCode -->
+                <div class="coding-profile-card flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl">
+                    <a href="https://leetcode.com/u/Greeshma_Sathvika_Meesala/" target="_blank" class="flex flex-col items-center w-full h-full">
+                        <span class="flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-md coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #FFD6B0 100%)">
+                            <i class="fa-solid fa-code text-3xl" style="color: #43A047;"></i>
+                        </span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">LeetCode</h3>
+                        <div class="profile-metric">
+                            <span class="metric-label rating-label-peach">Rating:</span>
+                            <span class="metric-value rating-stars" style="color: #3EB489 !important;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Showcasing problem-solving skills and data structure knowledge.</p>
+                    </a>
+                </div>
+                <!-- CodeChef -->
+                <div class="coding-profile-card flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl">
+                    <a href="https://www.codechef.com/users/greeshma020505" target="_blank" class="flex flex-col items-center w-full h-full">
+                        <span class="flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-md coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #FFD6B0 100%)">
+                            <i class="fa-solid fa-utensils text-3xl" style="color: #43A047;"></i>
+                        </span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">CodeChef</h3>
+                        <div class="profile-metric">
+                            <span class="metric-label rating-label-peach">Rating:</span>
+                            <span class="metric-value rating-stars" style="color: #3EB489 !important;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><i class="far fa-star"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Participating in coding contests and improving algorithmic skills.</p>
+                    </a>
+                </div>
+                <!-- HackerRank -->
+                <div class="coding-profile-card flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl">
+                    <a href="https://www.hackerrank.com/profile/meesalasathvika1" target="_blank" class="flex flex-col items-center w-full h-full">
+                        <span class="flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-md coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #FFD6B0 100%)">
+                            <i class="fab fa-hackerrank text-3xl" style="color: #43A047;"></i>
+                        </span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">HackerRank</h3>
+                        <div class="profile-metric">
+                            <span class="metric-label">Rank:</span>
+                            <span class="metric-value">Top 5%</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Highlighting achievements in coding challenges and certifications.</p>
+                    </a>
+                </div>
+                <!-- InterviewBit -->
+                <div class="coding-profile-card flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl">
+                    <a href="https://www.interviewbit.com/profile/greeshma-sathvika/" target="_blank" class="flex flex-col items-center w-full h-full">
+                        <span class="flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-md coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #FFD6B0 100%)">
+                            <i class="fa-solid fa-briefcase text-3xl" style="color: #43A047;"></i>
+                        </span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">InterviewBit</h3>
+                         <div class="profile-metric">
+                            <span class="metric-label">Score:</span>
+                            <span class="metric-value">1200+</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Sharpening interview skills and mastering coding problems.</p>
+                    </a>
+                </div>
+                <!-- GeeksforGeeks -->
+                <div class="coding-profile-card flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl">
+                    <a href="https://www.geeksforgeeks.org/user/meesalasathvika2wss/" target="_blank" class="flex flex-col items-center w-full h-full">
+                        <span class="flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-md coding-profile-icon-fade" style="background: linear-gradient(135deg, #A8FFEB 0%, #FFD6B0 100%)">
+                            <i class="fa-solid fa-glasses text-3xl" style="color: #43A047;"></i>
+                        </span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">GeeksforGeeks</h3>
+                        <div class="profile-metric">
+                            <span class="metric-label">Rank:</span>
+                            <span class="metric-value">~250k</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Learning and contributing to a vast collection of coding resources.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="heading">Get In Touch</h2>
+    <p class="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">
+    I'm always open to new ideas and friendly conversations—reach out via the form or catch me on social!  
+    </p>
+    <div class="max-w-xl mx-auto dark:bg-gray-900/70 rounded-2xl shadow-xl p-8 backdrop-blur-md glass-card">
+      
+      <!-- Contact Form -->
+      <form id="contact-form" class="space-y-6">
+        <div>
+          <label for="name" class="block text-sm font-semibold mb-2 text-text-light dark:text-text-dark">Name</label>
+          <input type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Your Name (e.g., Greeshma Meesala)"
+            class="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-600 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors outline-none text-text-light dark:text-text-dark placeholder-gray-400 dark:placeholder-gray-500 shadow-sm"
+          >
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-2 text-text-light dark:text-text-dark">Email</label>
+          <input type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Your Email (e.g., greeshma@example.com)"
+            class="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-600 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors outline-none text-text-light dark:text-text-dark placeholder-gray-400 dark:placeholder-gray-500 shadow-sm"
+          >
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-semibold mb-2 text-text-light dark:text-text-dark">Message</label>
+          <textarea id="message"
+            name="message"
+            required
+            placeholder="Your Message (e.g., I have a project idea...)"
+            class="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-600 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors outline-none h-28 resize-none text-text-light dark:text-text-dark placeholder-gray-400 dark:placeholder-gray-500 shadow-sm"
+          ></textarea>
+        </div>
+        <button type="submit" class="button-green w-full mt-4">
+          <i class="fas fa-paper-plane"></i>
+          Deliver Message
+        </button>
+      </form>
+      <!-- Social Links -->
+      <div class="flex justify-center gap-6 mt-8">
+        <a href="https://github.com/GreeshmaSathvikaMeesala" target="_blank" aria-label="GitHub" class="social-icon-button">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/greeshma-sathvika-meesala-84b150276/" target="_blank" aria-label="LinkedIn" class="social-icon-button">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/greeshumeesala?t=M_zxBCKzsNGnlL0yGtaisQ&s=09" target="_blank" aria-label="Twitter" class="social-icon-button">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="mailto:meesalasathvika2005@gmail.com" aria-label="Email" class="social-icon-button">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+        })();
+    </script>
+    <script>
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+
+            // Toggle theme function
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                // Update icon and save preference
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('.nav-link-mobile');
+
+            function openMobileMenu() {
+                mobileMenu.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.style.display = 'none';
+                document.body.style.overflow = ''; // Allow background scrolling
+            }
+
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openMobileMenu();
+            });
+
+            mobileMenuCloseBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMobileMenu();
+            });
+
+            // Close mobile menu when a link is clicked and navigate
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Prevent default link behavior initially to handle smooth scroll manually if desired
+                    // e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    closeMobileMenu(); // Close the menu after clicking a link
+                });
+            });
+
+            // Close mobile menu when clicking outside (optional, depending on desired behavior)
+            // document.addEventListener('click', function(event) {
+            //     if (!mobileMenuBtn.contains(event.target) && 
+            //         !mobileMenu.contains(event.target) && 
+            //         mobileMenu.style.display === 'flex') {
+            //         closeMobileMenu();
+            //     }
+            // });
+
+            // EmailJS Form Submission
+            const contactForm = document.querySelector('#contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Show loading state
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitButton.disabled = true;
+
+                // Get form data
+                const formData = {
+                    to_email: 'meesalasathvika2005@gmail.com',
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    message: document.getElementById('message').value,
+                    reply_to: document.getElementById('email').value // Add reply-to field
+                };
+
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        // Show success message
+                        alert('Message sent successfully! I will get back to you soon.');
+                        contactForm.reset();
+                    })
+                    .catch(function(error) {
+                        console.error('FAILED...', error);
+                        // Show error message
+                        alert('Failed to send message. Please try again or email me directly at meesalasathvika2005@gmail.com');
+                    })
+                    .finally(function() {
+                        // Reset button state
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+html {
+    font-size: 16px !important;
+    scroll-padding-top: 10px;
+}
+
+html, body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+body {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    padding-bottom: 1.5rem;
+    /* background: linear-gradient(135deg, #FFE4F0 0%, #F3E7FF 100%); */
+    background-image: url('images/bg-gradient.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps background fixed on scroll */
+    min-height: 100vh;
+    /* Add animation for light mode background */
+    animation: subtleBackgroundPan 30s infinite alternate ease-in-out;
+}
+
+/* Keyframes for subtle background motion */
+@keyframes subtleBackgroundPan {
+  0% {
+    background-position: 0% 0%; /* Start position */
+  }
+  100% {
+    background-position: 100% 100%; /* End position */
+  }
+}
+
+/* Keyframes for complex dark mode gradient animation */
+@keyframes complexGradientMotion {
+  0% {
+    background-position: 0% 0%, 50% 50%, 100% 100%;
+    background-size: 200% 200%, 200% 200%, 200% 200%;
+  }
+  50% {
+    background-position: 50% 50%, 100% 0%, 0% 50%;
+    background-size: 250% 250%, 200% 200%, 150% 150%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 100%, 50% 0%;
+    background-size: 200% 200%, 150% 150%, 250% 250%;
+  }
+}
+
+.dark body {
+    /* Use the specified background image for dark mode */
+    background-image: url('images/dark_bg');
+    background-size: cover; /* Ensure the image covers the background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Keep background fixed on scroll (optional, but often looks good) */
+    overflow-x: hidden;
+    animation: none; /* Ensure main background image animation is off if you prefer the overlay animation */
+    background-color: #18122B; /* Fallback background color */
+    position: relative; /* Needed for pseudo-element positioning */
+}
+
+.dark body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(195, 176, 231, 0.05) 1px, transparent 1px);
+    background-size: 10px 10px; /* Adjust size of the noise pattern */
+    animation: noiseAnimation 60s infinite linear;
+    z-index: 0; /* Position above main background but below content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Keyframes for subtle noise animation */
+@keyframes noiseAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; /* Animate position for subtle movement */ }
+}
+
+/* Remove pseudo-element in light mode */
+body::before {
+    display: none;
+}
+
+.container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    width: 80% !important;
+    max-width: 80% !important;
+    margin: 0 auto !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+@media (max-width: 640px) {
+    .container {
+        width: 95% !important;
+        max-width: 95% !important;
+    }
+}
+
+.dark .container {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Make Contact section container transparent in light mode */
+#contact .container {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.section-title {
+    margin-bottom: 1.5rem !important;
+    font-size: 2.2rem !important;
+    /* Remove gradient styling */
+    /* background: linear-gradient(90deg, #FF007F 0%, #8A2BE2 100%); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
+    color: #E0E0E0 !important; /* Light gray color for light mode */
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    /* transition: background-position 0.5s cubic-bezier(.4,0,.2,1); /* Remove gradient related transition */
+    /* background-size: 200% auto; /* Remove gradient related property */
+    /* background-position: left center; /* Remove gradient related property */
+    text-shadow: none; /* Remove text shadow as it was for the gradient */
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    margin: 0.7rem auto 0 auto;
+    width: 80px;
+    height: 5px;
+    /* Keep gradient for the underline effect */
+    background: linear-gradient(90deg, #0a7a8e 0%, #ec78e8 100%);
+    opacity: 0.7;
+    transition: width 0.3s;
+}
+
+.section-title:hover {
+    /* filter: brightness(1.1) drop-shadow(0 2px 16px #FF007F33); /* Remove gradient related filter */
+    /* background-position: right center; /* Remove gradient related transition */
+}
+
+.section-title:hover::after {
+    width: 120px;
+    opacity: 1;
+}
+
+/* Dark mode section title color */
+.dark .section-title {
+    color: #C3B0E7 !important; /* Keep dark mode color */
+    /* Ensure no gradient or related effects in dark mode */
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    text-shadow: none;
+}
+
+h1, .text-4xl, .sm\:text-5xl, .lg\:text-6xl {
+    font-size: 2.5rem !important;
+    color: #1A1A1A;
+}
+
+.dark h1, .dark .text-4xl, .dark .sm\:text-5xl, .dark .lg\:text-6xl {
+    color: #F3A8FF !important;
+}
+
+h2, .text-2xl, .section-title {
+    font-size: 1.5rem !important;
+    color: #FF007A;
+}
+
+.dark h2, .dark .text-2xl, .dark .section-title {
+    color: #C3B0E7 !important;
+}
+
+h3, .text-xl {
+    font-size: 2.05rem !important;
+    color: #8A2BE2;
+}
+
+.dark h3, .dark .text-xl {
+    color: #FFB6E6 !important;
+}
+
+body, p, .text-lg, .text-base, .text-sm {
+    color: #22223B;
+}
+
+.dark body, .dark p, .dark .text-lg, .dark .text-base, .dark .text-sm {
+    color: #EDEDED !important;
+}
+
+.glass-card, .about-soft-card {
+    background: linear-gradient(135deg, rgba(255, 228, 240, 0.8) 0%, rgba(243, 231, 255, 0.8) 100%);
+}
+
+.dark .glass-card,
+.dark .about-soft-card {
+    background: radial-gradient(circle at center, rgba(40, 30, 60, 0.9) 0%, rgba(20, 15, 30, 0.95) 100%) !important; /* Subtle radial gradient */
+    border-color: rgba(195, 176, 231, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-soft-custom {
+    color: #fff !important;
+    background: linear-gradient(90deg, #FF007A 0%, #8A2BE2 100%) !important;
+    border: none !important;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-soft-custom:hover {
+    filter: brightness(1.1);
+}
+
+.dark .btn-primary, .dark .btn-secondary, .dark .btn-soft-custom {
+    background: linear-gradient(90deg, #C3B0E7 0%, #FFB6E6 100%) !important;
+    color: #18122B !important;
+}
+
+/* Hero Section Buttons */
+#home .btn-soft-custom {
+    background: transparent;
+    color: #FF007A;
+    border: 2px solid #FF007A;
+    border-radius: 9999px;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    box-shadow: 0 2px 8px 0 rgba(255,0,127,0.08);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#home .btn-soft-custom:hover,
+#home .btn-soft-custom:focus {
+    background: linear-gradient(90deg, #FF007A 0%, #8A2BE2 100%);
+    color: #fff;
+    border-color: #8A2BE2;
+    box-shadow: 0 4px 16px 0 rgba(138,43,226,0.33);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* About Section Buttons */
+#about .btn-soft-custom {
+    background: transparent;
+    color: #8A2BE2;
+    border: 2px solid #8A2BE2;
+    border-radius: 9999px;
+    padding: 0.55rem 1.7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    box-shadow: 0 2px 8px 0 rgba(138,43,226,0.08);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#about .btn-soft-custom:hover,
+#about .btn-soft-custom:focus {
+    background: linear-gradient(90deg, #8A2BE2 0%, #FF007A 100%);
+    color: #fff;
+    border-color: #FF007A;
+    box-shadow: 0 4px 16px 0 #FF007A33;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Contact Section Deliver Message Button */
+#contact .btn-primary {
+    background: transparent !important;
+    color: #FF007A !important;
+    box-shadow: none !important;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+#contact .btn-primary:hover,
+#contact .btn-primary:focus {
+    color: #e182b0!important;
+    background: transparent !important; /* Ensure no background on hover/focus */
+}
+
+/* Project Source Code Button */
+#projects .btn-secondary {
+    background: transparent !important;
+    color: #FF007A !important;
+}
+
+#projects .btn-secondary:hover,
+#projects .btn-secondary:focus {
+    background: transparent !important; /* Removed background on hover */
+    color: #ce91ae  !important;
+}
+
+/* Skills Section Card */
+#skills .glass-card {
+    max-width: 750px !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 40px !important;
+    padding: 1.2rem 1.6rem !important; /* Slightly more padding */
+    border-radius: 0.75rem !important;
+    font-size: 0.98rem !important;
+    /* box-shadow: 0 2px 8px 0 rgba(138, 43, 226, 0.08); */
+    border: 1px solid rgba(138, 43, 226, 0.1); /* Subtle border */
+    background: rgba(255, 255, 255, 0.7); /* Slightly more opaque background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle box shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#skills .space-y-14 > .glass-card {
+    margin-bottom: 0 !important;
+}
+
+#skills .space-y-14 {
+    gap: 10px !important; /* Increased gap for separation */
+}
+
+#skills .skill-pill {
+    padding: 0.4rem 1.2rem !important;
+    margin-bottom: 0 !important;
+    font-size: 0.95rem !important;
+    gap: 0.6rem !important; /* Adjusted gap between icon and text */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque white background */
+    color: #333; /* Darker text color for better contrast */
+    border-radius: 9999px;
+    border: 1px solid rgba(138, 43, 226, 0.15); /* Subtle border */
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Subtle box shadow */
+}
+
+#skills .skill-pill:hover {
+    background-color: #fff; /* Solid white background on hover */
+    border-color: rgba(138, 43, 226, 0.3); /* More prominent border on hover */
+    box-shadow: 0 2px 10px rgba(138, 43, 226, 0.15); /* More prominent shadow on hover */
+}
+
+.dark #skills .skill-pill {
+    background-color: rgba(195, 176, 231, 0.1); /* Subtle dark background */
+    color: #ddd; /* Lighter text color */
+    border: 1px solid rgba(195, 176, 231, 0.1);
+    box-shadow: none;
+}
+
+.dark #skills .skill-pill:hover {
+     background-color: rgba(195, 176, 231, 0.18); /* Slightly darker background on hover */
+     border-color: rgba(195, 176, 231, 0.28);
+     box-shadow: 0 2px 10px rgba(195, 176, 231, 0.25);
+}
+
+#skills .section-title {
+    margin-bottom: 1rem !important;
+    color: #E0E0E0 !important;
+    text-shadow: none;
+}
+
+@media (max-width: 640px) {
+    #skills .glass-card {
+        min-height: 32px !important;
+        padding: 0.7rem !important;
+    }
+    #skills .space-y-14 {
+        gap: 6px !important;
+    }
+}
+
+/* About section font sizes */
+#about .text-3xl {
+    font-size: 1.35rem !important;
+}
+
+#about p,
+#about .text-lg {
+    font-size: 1rem !important;
+}
+
+#about .btn-soft-custom {
+    font-size: 1rem !important;
+    padding: 0.5rem 1.5rem !important;
+}
+
+#about .about-soft-card h4 {
+    font-size: 1.05rem !important;
+}
+
+#about .about-soft-card p {
+    font-size: 0.92rem !important;
+}
+
+/* Coding Platforms Card Headings & Appearance */
+.coding-profile-card {
+    background: rgba(255,255,255,0.92);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px 0 rgba(138,43,226,0.10);
+    border: 1.5px solid #ececec;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5rem 0;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.18s;
+}
+
+.coding-profile-card:hover {
+    box-shadow: 0 6px 24px 0 rgba(138,43,226,0.33);
+    border-color: #C3B0E7;
+    transform: translateY(-4px) scale(1.03);
+}
+
+.coding-profile-card a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 1.1rem 1rem;
+}
+
+.coding-profile-card .profile-icon,
+.coding-profile-card span.flex.items-center.justify-center {
+    background: linear-gradient(135deg, #FF007A 0%, #8A2BE2 100%);
+    color: #fff !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    font-size: 1.55rem !important;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(138,43,226,0.10);
+}
+
+.coding-profile-card h3 {
+    font-size: 1.05rem !important;
+    font-weight: 700;
+    margin: 0 0 0.15em 0;
+    color: #8A2BE2;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+}
+
+.coding-profile-card:hover h3 {
+    color: #FF007A;
+    text-shadow: 0 2px 8px #FFB6E633;
+}
+
+.coding-profile-card p {
+    font-size: 0.92rem !important;
+    color: #444;
+    margin: 0;
+    margin-top: 0.25rem;
+    flex-grow: 1; /* Allow description to take available space */
+}
+
+.dark .coding-profile-card {
+    background: rgba(40, 30, 60, 0.97);
+    border-color: #232136;
+}
+
+.dark .coding-profile-card h3 {
+    color: #C3B0E7;
+}
+
+.dark .coding-profile-card p {
+    color: #eee;
+}
+
+@media (max-width: 768px) {
+    .coding-profile-card h3 { font-size: 0.95rem !important; }
+    .coding-profile-card p { font-size: 0.88rem !important; }
+    .coding-profile-card .profile-icon,
+    .coding-profile-card span.flex.items-center.justify-center {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.2rem !important;
+    }
+}
+
+/* Project Cards */
+#projects .glass-card h3 {
+    font-size: 1.05rem !important;
+    font-weight: 700;
+    color: #FF007A;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.2em;
+    transition: color 0.2s;
+}
+
+#projects .glass-card:hover h3 {
+    color: #8A2BE2;
+    text-shadow: 0 2px 8px #FFB6E633;
+}
+
+/* Tech Stack Tags */
+.px-2.py-1.text-xs.rounded {
+    background-color: #f3f4f6 !important; /* Tailwind's bg-gray-100 */
+    color: #22223B !important;            /* Default dark text */
+    border: none;
+}
+
+.dark .px-2.py-1.text-xs.rounded {
+    background-color: #2d3748 !important; /* Tailwind's bg-gray-800 */
+    color: #EDEDED !important;            /* Light text for dark mode */
+    border: none;
+}
+
+/* Contact Form Inputs */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.dark #contact input[type="text"],
+.dark #contact input[type="email"],
+.dark #contact textarea {
+    background-color: rgba(138, 43, 226, 0.15);
+    color: #EDEDED !important;
+    border: 1px solid rgba(195, 176, 231, 0.2);
+}
+
+/* Theme Switch */
+.theme-switch {
+    width: 56px; /* Keep width the same */
+    height: 24px; /* Decreased from 32px to 24px */
+    background: linear-gradient(90deg, #FF007F 0%, #FFA07A 100%);
+    border-radius: 9999px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.dark .theme-switch {
+    background: linear-gradient(135deg, #18122B 0%, #232136 100%); /* Dark mode gradient for track */
+    border: none; /* Ensure no border in dark mode */
+}
+
+.theme-switch-track {
+    /* This is no longer used in the simplified HTML */
+    display: none;
+}
+
+.theme-switch-thumb {
+    width: 20px; /* Decreased from 28px to 20px */
+    height: 20px; /* Decreased from 28px to 20px */
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .theme-switch-thumb {
+    left: calc(100% - 20px - 2px); /* Adjusted for new thumb size */
+    background-color: #fff;
+}
+
+.theme-switch-thumb i {
+    color: #000; /* Icon color (black in both modes) */
+    font-size: 1rem; /* Icon size */
+    transition: color 0.3s ease;
+}
+
+.dark .theme-switch-thumb i {
+    color: #000; /* Icon color (black in both modes) */
+}
+
+/* Social Icon Buttons */
+.social-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; /* Slightly larger than thumb for touch target */
+    height: 44px; /* Slightly larger than thumb for touch target */
+    border-radius: 50%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove underline */
+    color: #FF007A; /* Default icon color in light mode */
+    background-color: rgba(255, 228, 240, 0.8); /* Light background in light mode */
+    box-shadow: 0 2px 8px rgba(138, 43, 226, 0.1);
+}
+
+.social-icon-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
+    background-color: rgba(255, 228, 240, 1); /* Solid background on hover */
+    color: #8A2BE2; /* Change icon color on hover */
+}
+
+.dark .social-icon-button {
+    color: #C3B0E7; /* Default icon color in dark mode */
+    background-color: rgba(40, 30, 60, 0.8); /* Dark background in dark mode */
+    box-shadow: 0 2px 8px rgba(195, 176, 231, 0.1);
+}
+
+.dark .social-icon-button:hover {
+     background-color: rgba(195, 176, 231, 0.18); /* Slightly darker background on hover */
+     border-color: rgba(195, 176, 231, 0.28);
+     box-shadow: 0 2px 10px rgba(195, 176, 231, 0.25);
+}
+
+.social-icon-button i {
+    font-size: 1.3rem; /* Adjust icon size */
+}
+
+/* Apply section-title gradient style to About h3 in light mode */
+#about h3 {
+    /* background: linear-gradient(90deg, #FF007F 0%, #8A2BE2 100%); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
+    color: #FFFFFF !important; /* Set heading color to white in light mode */
+}
+
+/* Ensure h3 in dark mode uses its original color */
+.dark #about h3 {
+    background: none; /* Remove gradient */
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: #FFB6E6 !important; /* Dark mode h3 color */
+}
+
+/* Set paragraph color to black in light mode */
+#about p {
+    color: #000000 !important; /* Set paragraph color to black in light mode */
+}
+
+/* Ensure paragraph in dark mode uses its original color */
+.dark #about p {
+     color: #EDEDED !important; /* Dark mode paragraph color */
+}
+
+/* Navigation Title Color */
+nav .text-2xl a,
+nav .text-2xl a i {
+    color: #FFFFFF !important; /* Changed to white for light mode */
+}
+
+/* Ensure dark mode color is not affected */
+.dark nav .text-2xl a,
+.dark nav .text-2xl a i {
+    color: #EDEDED !important; /* Keep the original dark mode color */
+}
+
+/* Decrease gap between navigation links */
+nav ul.md\:flex li {
+    margin-left: 1.5rem !important; /* Reduced margin */
+}
+
+/* Dark mode styles for Project Source Code Button */
+.dark #projects .btn-secondary:hover,
+.dark #projects .btn-secondary:focus {
+    background: transparent !important; /* Removed background on hover in dark mode */
+    color: #ce91ae  !important;
+}
+
+/* Background Decorative Elements */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Position behind content */
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.3; /* Semi-transparent */
+    filter: blur(10px); /* Apply blur */
+    transition: background-color 0.5s ease;
+}
+
+/* Complex shape animation */
+@keyframes shapeAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(15px, -20px) rotate(10deg) scale(1.05);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(0, -40px) rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    75% {
+        transform: translate(-15px, -20px) rotate(-10deg) scale(0.95);
+        opacity: 0.25;
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Light Mode Shapes (No animation) */
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    background-color: #FFB6E6; /* Light pink */
+    top: 10%;
+    left: 5%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+.shape-2 {
+    width: 120px;
+    height: 120px;
+    background-color: #C3B0E7; /* Light purple */
+    top: 40%;
+    right: 10%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+.shape-3 {
+    width: 100px;
+    height: 100px;
+    background-color: #8A2BE2; /* Bluish-violet */
+    bottom: 20%;
+    left: 20%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+.shape-4 {
+    width: 150px;
+    height: 150px;
+    background-color: #FF007F; /* Pink */
+    top: 20%;
+    right: 25%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+.shape-5 {
+    width: 90px;
+    height: 90px;
+    background-color: #FFB6E6; /* Light pink */
+    bottom: 10%;
+    right: 5%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+.shape-6 {
+    width: 110px;
+    height: 110px;
+    background-color: #C3B0E7; /* Light purple */
+    top: 50%;
+    left: 30%;
+    animation: none; /* Ensure no animation in light mode */
+}
+
+/* Dark Mode Shapes (Apply animation and different appearance) */
+.dark .shape-1,
+.dark .shape-2,
+.dark .shape-3,
+.dark .shape-4,
+.dark .shape-5,
+.dark .shape-6 {
+    background-color: rgba(195, 176, 231, 0.1); /* Subtle color in dark mode */
+    filter: blur(15px); /* Slightly more blur in dark mode */
+    opacity: 0.2; /* Less opaque in dark mode */
+}
+
+/* Animations for dark mode shapes */
+.dark .shape-1 { animation: shapeAnimation 30s infinite ease-in-out alternate; }
+.dark .shape-2 { animation: shapeAnimation 35s infinite ease-in-out alternate reverse; }
+.dark .shape-3 { animation: shapeAnimation 28s infinite ease-in-out alternate; }
+.dark .shape-4 { animation: shapeAnimation 40s infinite ease-in-out alternate reverse; }
+.dark .shape-5 { animation: shapeAnimation 33s infinite ease-in-out alternate; }
+.dark .shape-6 { animation: shapeAnimation 27s infinite ease-in-out alternate reverse; }
+
+/* Styles for Coding Profile Metrics */
+.coding-profile-card .profile-metric {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1rem;
+    margin-top: 0.4em; /* Space above metrics */
+    font-size: 0.9rem;
+    color: #555; /* Default color for metrics */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+    padding-top: 0.4em;
+}
+
+.dark .coding-profile-card .profile-metric {
+    color: #bbb; /* Lighter color for metrics in dark mode */
+    border-top-color: rgba(255, 255, 255, 0.08); /* Subtle separator in dark mode */
+}
+
+.coding-profile-card .metric-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: #8A2BE2; /* Accent color for labels in light mode */
+}
+
+.dark .coding-profile-card .metric-label {
+    color: #C3B0E7; /* Accent color for labels in dark mode */
+}
+
+.coding-profile-card .metric-value {
+    font-weight: 400;
+}
+
+.about-soft-card {
+    transition: all 0.3s ease;
+}
+
+.about-soft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
+    background: linear-gradient(135deg, rgba(255, 228, 240, 0.9) 0%, rgba(243, 231, 255, 0.9) 100%);
+}
+
+.dark .about-soft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(195, 176, 231, 0.2);
+    background: radial-gradient(circle at center, rgba(50, 40, 70, 0.95) 0%, rgba(30, 25, 40, 0.98) 100%) !important;
+}
+
+.about-soft-card:hover .mb-4.flex.items-center.justify-center {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
+}
+
+.dark .about-soft-card:hover .mb-4.flex.items-center.justify-center {
+    box-shadow: 0 4px 12px rgba(195, 176, 231, 0.3);
+}
+
+.about-soft-card .mb-4.flex.items-center.justify-center {
+    transition: all 0.3s ease;
+}
+
+/* Remove hover effect for the glass card in the Contact section */
+#contact .glass-card:hover {
+    box-shadow: none !important; /* Remove any shadow on hover */
+    background: rgba(255, 255, 255, 0.7) !important; /* Reset light mode background on hover */
+}
+
+.dark #contact .glass-card:hover {
+    background: rgba(17, 24, 39, 0.7) !important; /* Reset dark mode background on hover */
+}
+
+/* Ensure the content of the button-green is centered */
+.button-green {
+    justify-content: center !important;
+}
+
+.button-green:hover {
+    background: var(--peach) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(251, 140, 0, 0.3);
+}
+
+.heading {
+    font-size: 2.5rem;
+}
+
+/* Refined styles for the mobile menu button and links */
+
+/* Mobile Menu Button */
+#mobile-menu-btn,
+#mobile-menu-close-btn {
+    transition: all 0.3s ease;
+}
+
+#mobile-menu-btn:hover i,
+#mobile-menu-close-btn:hover i {
+    color: var(--mint-green); /* Use mint green on icon hover */
+}
+
+body:not(.dark-mode) #mobile-menu-btn i {
+    color: #000000; /* Black in light mode */
+}
+
+.dark-mode #mobile-menu-btn i {
+    color: #F3F4F6; /* Light gray in dark mode */
+}
+
+/* Subtle hover effect for the mobile menu button area */
+#mobile-menu-btn:hover {
+    background-color: rgba(156, 163, 175, 0.1); /* Subtle gray background on hover */
+    border-radius: 0.5rem; /* Rounded corners on hover */
+}
+
+.dark-mode #mobile-menu-btn:hover {
+    background-color: rgba(243, 244, 246, 0.1); /* Subtle light background on hover in dark mode */
+}
+
+
+/* Mobile Menu Overlay */
+#mobile-menu {
+    /* Full screen fixed overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Semi-transparent background with blur */
+    background: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background for light mode */
+    backdrop-filter: blur(10px);
+    z-index: 50; /* Ensure it's above other content */
+    /* Flexbox for centering content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Smooth transition for background color */
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode #mobile-menu {
+    background: rgba(17, 24, 39, 0.95); /* Darker semi-transparent background for dark mode */
+}
+
+/* Mobile Menu Links */
+.nav-link-mobile {
+    font-size: 1.8rem; /* Adjusted size for mobile readability */
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    display: inline-block; /* Needed for underline effect */
+    padding: 0.5rem 0; /* Vertical padding for spacing */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    color: #FFFFFF; /* Default link color in light mode */
+}
+
+.dark-mode .nav-link-mobile {
+    color: #E5E7EB; /* Light gray text in dark mode */
+}
+
+/* Underline effect on hover */
+.nav-link-mobile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: currentColor; /* Use the current text color for the underline */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link-mobile:hover::after {
+    width: 50%; /* Underline appears on hover */
+}
+
+/* Hover color for links */
+body:not(.dark-mode) .nav-link-mobile:hover {
+    color: var(--mint-green); /* Mint green hover in light mode */
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
+.dark-mode .nav-link-mobile:hover {
+    color: var(--peach); /* Peach hover in dark mode */
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
+/* Styling for the list containing links */
+#mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%; /* Ensure list takes full width for centering */
+}
+
+/* Spacing between list items (links) */
+#mobile-menu li {
+    margin: 0.8rem 0; /* Adjusted spacing */
+}
+
+/* Ensure title and close button are visible and layered correctly */
+#mobile-menu .portfolio-title,
+#mobile-menu-close-btn {
+    z-index: 60; /* Ensure they are above the menu links */
+}
+
+/* Styling for the Portfolio title in the mobile menu */
+#mobile-menu .portfolio-title {
+     color: #F3F4F6; /* Light gray */
+     font-size: 1.8rem; /* Adjusted size */
+     font-weight: bold;
+}
+
+.dark-mode #mobile-menu .portfolio-title {
+     color: #E5E7EB; /* Lighter gray in dark mode */
+}
+
+/* Styling for the close button */
+#mobile-menu-close-btn {
+    font-size: 2.2rem; /* Adjusted size */
+    color: #F3F4F6; /* Light gray */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dark-mode #mobile-menu-close-btn {
+    color: #E5E7EB; /* Lighter gray in dark mode */
+}
+
+/* Responsive adjustments for smaller mobile screens */
+@media (max-width: 768px) {
+    .nav-link-mobile {
+        font-size: 1.4rem; /* Further adjust font size for smaller screens */
+        padding: 0.3rem 0; /* Further adjust padding */
+    }
+
+    #mobile-menu li {
+        margin: 0.6rem 0; /* Further adjust spacing */
+    }
+
+    #mobile-menu .portfolio-title {
+        font-size: 1.4rem; /* Further adjust size */
+    }
+
+    #mobile-menu-close-btn {
+        font-size: 1.8rem; /* Further adjust size */
+    }
+}
