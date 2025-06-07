@@ -933,7 +933,7 @@ body:not(.dark-mode) #mobile-menu-btn i {
     right: 0;
     bottom: 0;
     /* Semi-transparent background with blur */
-    background: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background for light mode */
+    background: rgba(0, 0, 0, 0.3); /* More transparent background for light mode */
     backdrop-filter: blur(10px);
     z-index: 50; /* Ensure it's above other content */
     /* Flexbox for centering content */
@@ -946,7 +946,7 @@ body:not(.dark-mode) #mobile-menu-btn i {
 }
 
 .dark-mode #mobile-menu {
-    background: rgba(17, 24, 39, 0.95); /* Darker semi-transparent background for dark mode */
+    background: rgba(17, 24, 39, 0.3); /* More transparent background for dark mode */
 }
 
 /* Mobile Menu Links */
