@@ -2461,16 +2461,9 @@
   </div>
 </section>
 
-    <script src="script.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Add EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Initialize EmailJS with your public key
-            emailjs.init("NP5sPr59T5DAdyeN6");
-        })();
-    </script>
     <script>
         // Theme Toggle Functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -2534,7 +2527,7 @@
                     notification.style.opacity = '0';
                     setTimeout(() => notification.remove(), 300);
                 }, 3000);
-            }
+            };
 
             // EmailJS Form Submission
             const contactForm = document.getElementById('contact-form');
@@ -2556,7 +2549,7 @@
                 };
 
                 // Send email using EmailJS
-                emailjs.send('service_8qg6q4d', 'template_8qg6q4d', formData)
+                emailjs.send('service_1avsnbn', 'template_75qxvyv', formData)
                     .then(function(response) {
                         console.log('SUCCESS!', response.status, response.text);
                         // Show success notification

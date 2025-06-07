@@ -1,3 +1,36 @@
+// EmailJS Initialization
+emailjs.init("NP5sPr59T5DAdyeN6");
+
+// Function to show notification
+function showNotification(message, type = 'success') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-y-0 opacity-100 z-50 ${
+        type === 'success' 
+            ? 'bg-green-500 text-white' 
+            : 'bg-red-500 text-white'
+    }`;
+    
+    // Add icon based on type
+    const icon = type === 'success' ? 'check-circle' : 'exclamation-circle';
+    notification.innerHTML = `
+        <div class="flex items-center gap-2">
+            <i class="fas fa-${icon}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add to body
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateY(100%)';
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -83,30 +116,44 @@ function updateActiveLink() {
 window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
 
-// Form submission handling
+// EmailJS Form Submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        console.log('Form submitted:', data);
-        
-        // Show success message
-        const successMessage = document.createElement('div');
-        successMessage.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-y-0 opacity-100';
-        successMessage.textContent = 'Message sent successfully!';
-        document.body.appendChild(successMessage);
-        
-        // Remove success message after 3 seconds
-        setTimeout(() => {
-            successMessage.style.transform = 'translateY(100%)';
-            successMessage.style.opacity = '0';
-            setTimeout(() => successMessage.remove(), 300);
-        }, 3000);
-        
-        // Reset form
-        this.reset();
+
+        // Show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitButton.disabled = true;
+
+        // Get form data
+        const formData = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            reply_to: document.getElementById('email').value
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_1avsnbn', 'template_75qxvyv', formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                // Show success notification
+                showNotification('Message sent successfully! I will get back to you soon.');
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                console.error('FAILED...', error);
+                // Show error notification
+                showNotification('Failed to send message. Please try again or email me directly at meesalasathvika2005@gmail.com', 'error');
+            })
+            .finally(function() {
+                // Reset button state
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            });
     });
 }
 
